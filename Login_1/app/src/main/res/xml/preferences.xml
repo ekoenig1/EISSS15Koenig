@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditTextPreference
+        android:title="@string/preference_standort_title"
+        android:key="@string/preference_standort_key"
+        android:defaultValue="@string/preference_standort_default"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <CheckBoxPreference
+        android:title="@string/preference_kurzvorhersage_title"
+        android:key="@string/preference_kurzvorhersage_key"
+        android:defaultValue="false"
+        android:summary="@string/preference_kurzvorhersage_summary" />
+
+</PreferenceScreen>
