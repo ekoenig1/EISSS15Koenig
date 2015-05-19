@@ -1,0 +1,22 @@
+﻿{
+  "name": "spiel-21",
+  "version": "1.0.0",
+  "description": "Basketballspiel",
+  "main": "spiel21.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "spiel",
+    "21",
+    "basketball"
+  ],
+  "author": "Eduard Koenig",
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "express": "^4.11.1",
+	"mongojs": "^0.18.1",
+    "mongoose": "*",
+	"socket.io": "*"
+  }
+}

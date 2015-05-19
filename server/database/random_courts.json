@@ -1,0 +1,99 @@
+  {  
+    "name":"Lindengymnasium",
+    "str":"Moltkestraße 50",
+    "plz":"51643",
+    "stadt":"Gummerbach",
+    "land":"Deutschland",
+    "latitude":"51,032,045",
+    "longitude":"7,570,996"
+  }
+  {  
+    "name":"Chorweiler Nord Groß",
+    "str":"Kriegerhofstraße 69B",
+    "plz":"50765",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.78489926",
+    "longitude":"7.2073466"
+  }
+  {  
+    "name":"Chorweiler Nord Klein",
+    "str":"Muldeweg",
+    "plz":"50765",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"51.13737558",
+    "longitude":"6.81417242"
+  }
+  {  
+    "name":"Vorgebirgspark",
+    "str":"Kierberger Straße 15",
+    "plz":"50765",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.95434269",
+    "longitude":"6.73216288"
+  }
+  {  
+    "name":"Deutzer Werft",
+    "str":"Deutzer Werft",
+    "plz":"50765",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"51.17630751",
+    "longitude":"7.14640017"
+  }
+  {  
+    "name":"Arizona",
+    "str":"taylor straße",
+    "plz":"50766",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.86074321",
+    "longitude":"6.606128"
+  }
+  {  
+    "name":"Buffalo",
+    "str":"westheimer rd",
+    "plz":"50767",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.97442456",
+    "longitude":"6.71821096"
+  }
+  {  
+    "name":"Florida",
+    "str":"prospect rd",
+    "plz":"50768",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"51.1158081",
+    "longitude":"6.89919555"
+  }
+  {  
+    "name":"Maychai",
+    "str":"royal ln",
+    "plz":"50769",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.85474725",
+    "longitude":"7.02826631"
+  }
+  {  
+    "name":"Colorado",
+    "str":"dane st",
+    "plz":"50770",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.91339778",
+    "longitude":"6.77074631"
+  }
+  {  
+    "name":"Alaska",
+    "str":"oak ridge ln",
+    "plz":"50771",
+    "stadt":"Köln",
+    "land":"Deutschland",
+    "latitude":"50.86658274",
+    "longitude":"6.8267999"
+  }
