@@ -20,8 +20,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // Support Library
     compile 'com.android.support:appcompat-v7:22.1.1'
+    // Chat socket.io
     compile 'com.github.nkzawa:socket.io-client:0.3.0'
+    // Google Play Services
     compile 'com.google.android.gms:play-services:7.3.0'
+    compile 'com.google.code.gson:gson:2.3.1'
 }

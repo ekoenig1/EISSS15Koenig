@@ -14,9 +14,9 @@
   "author": "Eduard Koenig",
   "dependencies": {
     "body-parser": "^1.10.2",
-    "express": "^4.11.1",
-	"mongojs": "^0.18.1",
-    "mongoose": "*",
+    "express": "4.12.4",
+	"mongodb": "1.4.25",
+	"mongoskin": "1.4.4",    
 	"socket.io": "*"
   }
 }

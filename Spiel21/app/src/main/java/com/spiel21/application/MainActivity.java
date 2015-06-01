@@ -1,9 +1,10 @@
 package com.spiel21.application;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.MenuItem;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,13 +20,20 @@ import java.util.concurrent.ExecutionException;
 
 
 // Startbildschirm
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
     // Strings für den Loginbereich
     private String emailtext = "";
     private String passtext = "";
     EditText email;
     EditText pass;
+
+    // drehen des Bildschirms verhindern
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
 
     @Override
@@ -38,20 +46,25 @@ public class MainActivity extends ActionBarActivity {
         btnAnmelden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplication(),"hallo",Toast.LENGTH_LONG).show();
                 try {
                     email = (EditText) findViewById(R.id.email);
                     pass = (EditText) findViewById(R.id.pass);
 
                     emailtext = email.getText().toString();
                     passtext = pass.getText().toString();
-                    String test = new AsyncTaskLogin(emailtext, passtext, "login").execute().get();
 
-                    if (test.equals("OK")) {
-                        Toast.makeText(getApplication(), test, Toast.LENGTH_LONG).show();
-                        changeActivity();
-                    } else {
+                    String test = new AsyncTaskPost("", "", "", "", passtext, "", emailtext, "/login").execute().get();
+
+                    if (test.equals("FAIL")) {
                         Toast.makeText(getApplication(), "Anmeldung fehlgeschlagen", Toast.LENGTH_LONG).show();
+
+                    } else {
+
+                        User benutzer = User.createUser(test);
+                        Toast.makeText(getApplication(), benutzer.getEmail() + ", " + benutzer.getPass(), Toast.LENGTH_LONG).show();
+
+                        //JSONObject obj = new JSONObject(test);
+                        changeActivity();
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -61,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        //
+        // Zugriff auf das Registirierungsformular
         TextView btnRegistration = (TextView) findViewById(R.id.textView_registrieren);
         btnRegistration.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +83,7 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
-        // Direktzugriff auf die NavigationActivity
+        // Direktzugriff auf die NavigationActivity *testweise*
         Button btnMenu = (Button) findViewById(R.id.button_menu);
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,42 +91,25 @@ public class MainActivity extends ActionBarActivity {
                 changeActivity();
             }
         });
+
+        // Direktzugriff auf die Karte *testweise*
+        Button btnKarte = (Button) findViewById(R.id.button_karte);
+        btnKarte.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), KartenActivity.class));
+            }
+        });
     }
 
     // hier kann sich der Benutzer in der Klasse registrieren
     private void changeToRegistration() {
-        Intent intent = new Intent(this, RegistrationActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RegistrationActivity.class));
     }
 
-    // nach dem Login wird die NavigationActivity aufgerufen
+    // nach dem Login wird das Menue aufgerufen
     private void changeActivity() {
-        Intent intent = new Intent(this, NavigationActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, NavigationActivity.class));
     }
 
-
-    /*
-    // Menue rechts
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-    */
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

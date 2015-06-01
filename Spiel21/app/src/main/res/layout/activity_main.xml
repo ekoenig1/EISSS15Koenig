@@ -8,6 +8,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:src="@drawable/ic_launcher"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp" />
+
     <!-- Login Bereich -->
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -26,8 +35,6 @@
             android:layout_alignParentStart="true"
             android:hint="E-Mail"
             android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:singleLine="true"
             android:layout_margin="10dp" />
 
         <EditText
@@ -53,8 +60,19 @@
             android:layout_margin="10dp" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Für Spiel 21 registrieren"
+        android:id="@+id/textView_registrieren"
+        android:textSize="18dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
-
+    <!-- Direktzugriff auf das Menue, testweise -->
     <Button
         android:id="@+id/button_menu"
         android:layout_width="fill_parent"
@@ -65,27 +83,15 @@
         android:layout_alignParentStart="true"
         android:visibility="visible" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_karte"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Für Spiel 21 registrieren"
-        android:id="@+id/textView_registrieren"
+        android:text="Karte zeigen"
+        android:visibility="visible"
         android:layout_above="@+id/button_menu"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="18dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:gravity="center_horizontal"
-        android:layout_margin="10dp" />
+        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
-        android:src="@drawable/ic_launcher"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="30dp" />
 
 </RelativeLayout>

@@ -1,7 +1,6 @@
 package com.spiel21.application;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -67,7 +66,6 @@ public class WetterFragment extends Fragment {
 
         // Daten aktuallisieren
         if (id == R.id.action_aktualisieren) {
-
             holeWetterDaten();
 
             return true;
@@ -78,9 +76,12 @@ public class WetterFragment extends Fragment {
     // --- ende --- //
 
 
+
     private void holeWetterDaten(){
         // erzeuge neue Instanz, starte anynchronen Task
         WetterDaten holeDatenTask = new WetterDaten();
+
+
 
         // Auslesen des ausgewaehlten Standorts aus den SharedPreferences
         SharedPreferences sPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -91,9 +92,10 @@ public class WetterFragment extends Fragment {
         String preferenceKurzvorhersageKey = getString(R.string.preference_kurzvorhersage_key);
         Boolean kurzVorhersage = sPrefs.getBoolean(preferenceKurzvorhersageKey, false);
 
+        // Im Eistellungen kann die Information geandert werden
         String anzahlTage = "14";
         if (kurzVorhersage) anzahlTage = "7";
-        holeDatenTask.execute(standort, anzahlTage);
+            holeDatenTask.execute(standort, anzahlTage);
 
         // Den Benutzer infromieren, das im Hintergrund Wetterdaten abgefragt wreden
         Toast.makeText(getActivity(), "Wetterdaten für " + standort + " werden abgefragt!", Toast.LENGTH_SHORT).show();
@@ -102,8 +104,8 @@ public class WetterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Beispieldaten
-        // TODO: Soft ausfuehren
+
+        // Statusmeldung als String
         String[] wetterArray = {
                 "Bitte warten..."
         };
@@ -116,7 +118,7 @@ public class WetterFragment extends Fragment {
                 // aktuelle Umgebung der Activity, ID des Layouts, ID des TextViews, Daten aus dem Array
                 getActivity(), R.layout.list_item_wetter, R.id.list_item_wetter_textview, wochenVorhersage);
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_wetter, container, false);
 
         // erstellen des ListViews, zuweisen des ArrayAdapters inkl Layouts
         ListView vorhersageListView = (ListView) rootView.findViewById(R.id.listview_wetter);
@@ -127,18 +129,12 @@ public class WetterFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String wetterinfo = (String) adapterView.getItemAtPosition(position);
-
-                // Intent erzeugen und Starten der WetterdetailActivity mit Intent
-                Intent wetterdetailIntent = new Intent(getActivity(), WetterActivity.class);
-                wetterdetailIntent.putExtra(Intent.EXTRA_TEXT, wetterinfo);
-                startActivity(wetterdetailIntent);
                 // Toast fuer den Benutzer
                 Toast.makeText(getActivity(), wetterinfo, Toast.LENGTH_SHORT).show();
             }
         });
-
-        holeWetterDaten();
-
+        // hier kann man die Daten automatisch abrufen lassen
+        //holeWetterDaten();
         return rootView;
     }
 
@@ -230,8 +226,8 @@ public class WetterFragment extends Fragment {
 
         @Override
         protected String[] doInBackground(String... strings) {
-
-            if (strings.length == 0) { // Keine Eingangsparameter erhalten, Abbruch
+            // Keine Eingangsparameter erhalten, Abbruch
+            if (strings.length == 0) {
                 return null;
             }
 
@@ -244,10 +240,10 @@ public class WetterFragment extends Fragment {
             final String ANZAHL_TAGE = "cnt";
             final String SPRACHE = "lang";
 
-            String ort = "Gummersbach";
+            String ort = "Bonn";
             String datenformat = "xml"; // json
             String einheit = "metric";
-            int anzahlTage = 14;
+            int anzahlTage = Integer.parseInt(strings[1]);
             String sprache = "de";
 
             // baue den String zusammen fuer die URL

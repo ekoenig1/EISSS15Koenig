@@ -2,12 +2,15 @@ package com.spiel21.application;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +20,13 @@ import android.view.ViewGroup;
 
 public class NavigationActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    // drehen des Bildschirms verhindern
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
     // das Verhalten von Fragment, Interaktion und Praesentation
     private NavigationDrawerFragment mNavigationDrawerFragment;
@@ -38,6 +48,7 @@ public class NavigationActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
 
@@ -47,27 +58,27 @@ public class NavigationActivity extends ActionBarActivity
         Fragment fragment = null;
         FragmentManager fragmentManager = getFragmentManager();
         switch (position) {
-            case 0:
-                //Intent intent = new Intent(getApplicationContext(), ChatFragment.class);
-                //startActivity(intent);
+            case 0: // Spielstream
+                fragment = new GameResultActivityFragment();
+                break;
+            case 1: // Herausfordern
+                fragment = new ChallengeFragment();
+                break;
+            case 2: // Basketballplaetze
+                fragment = new KartenActivityFragment();
+                break;
+            case 3: // Nachrichten
+                fragment = new ChatFragment();
+                break;
+            case 4: // Wetter
                 fragment = new WetterFragment();
-
                 break;
-            case 1:
-                //fragment = new SpielstreamFragment();
-
-                fragment = new KartenFragment();
-                break;
-            case 2:
-                fragment = new ChatFragment();
-                break;
-            case 3:
-                fragment = new ChatFragment();
-                break;
-
         }
-        if (fragment!=null) {
+        if (fragment != null) {
             fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
+        } else {
+            // Fehler
+            Log.e("Navigation", "Fehler beim erstellen von Fragments");
         }
     }
 
@@ -85,6 +96,9 @@ public class NavigationActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }
@@ -113,17 +127,13 @@ public class NavigationActivity extends ActionBarActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // pruefen, ob Menu ausgewaehlt worden ist anhand der ID
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // Einstellungen
+        // EinstellungenActivity wird gestartet wenn der Eintrag geklickt wurde
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, EinstellungenActivity.class));
             return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -147,8 +157,7 @@ public class NavigationActivity extends ActionBarActivity
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_navigation, container, false);
             return rootView;
         }
@@ -156,8 +165,7 @@ public class NavigationActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((NavigationActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
+            ((NavigationActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
 

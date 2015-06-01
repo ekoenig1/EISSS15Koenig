@@ -8,10 +8,11 @@ hier auch zusaetzliche Sprachversion der App moeglich -->
     <string name="action_settings">Einstellungen</string>
     <string name="title_activity_navigation">Navigation</string>
 
-    <string name="title_section1">Wetter</string>
-    <string name="title_section2">Maps</string>
-    <string name="title_section3">Chat</string>
-    <string name="title_section4">Section 4</string>
+    <string name="title_section1">Spielergebnisse</string>
+    <string name="title_section2">Herausfordern</string>
+    <string name="title_section3">Basketballplätze</string>
+    <string name="title_section4">Chat</string>
+    <string name="title_section5">Wetter</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -36,6 +37,9 @@ hier auch zusaetzliche Sprachversion der App moeglich -->
     <string name="preference_kurzvorhersage_key">kurzvorhersage</string>
     <string name="preference_kurzvorhersage_summary">Vorhersage auf 7 Tage begrenzen</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+
 
 
 </resources>
