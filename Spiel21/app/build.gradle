@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.spiel21.application"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -22,9 +22,10 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // Support Library
+    //compile 'com.android.support:appcompat-v7:18.0+'
     compile 'com.android.support:appcompat-v7:22.1.1'
     // Chat socket.io
-    compile 'com.github.nkzawa:socket.io-client:0.3.0'
+    //compile 'com.github.nkzawa:socket.io-client:0.3.0'
     // Google Play Services
     compile 'com.google.android.gms:play-services:7.3.0'
     compile 'com.google.code.gson:gson:2.3.1'

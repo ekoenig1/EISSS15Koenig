@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.spiel21.application" >
+    package="com.spiel21.application">
 
     <!-- // Zugrifsrechte der Anwendung // -->
     <!-- Internetzugriff erlauben -->
@@ -28,42 +28,47 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".NavigationActivity"
+            android:name=".activity.NavigationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_navigation" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".activity.RegistrationActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_registration"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spiel21.application.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
+
         <activity
-            android:name=".WetterActivity"
+            android:name=".activity.ChallengeAktivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_wetter" />
+            android:label="@string/title_challenge">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.NavigationActivity" />
+        </activity>
+
         <activity
-            android:name=".EinstellungenActivity"
+            android:name=".activity.SettingsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_einstellungen"
-            android:parentActivityName=".NavigationActivity" >
+            android:parentActivityName=".activity.NavigationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationActivity" />
+                android:value=".activity.NavigationActivity" />
         </activity>
 
         <meta-data
@@ -74,12 +79,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".KartenActivity"
+            android:name=".activity.MapsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_maps" >
+            android:label="@string/title_activity_maps">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.spiel21.application.NavigationActivity" />
+                android:value=".activity.NavigationActivity" />
         </activity>
     </application>
 

@@ -24,7 +24,8 @@ hier auch zusaetzliche Sprachversion der App moeglich -->
 
     <!-- Wetterstrings -->
     <string name="action_aktualisieren">Aktualisieren</string>
-    <string name="title_activity_wetter">Wetter Activity</string>
+    <string name="title_activity_wetter">Wetter</string>
+    <string name="title_challenge">Herausfordern</string>
     <string name="title_activity_spielstream">Spielstream</string>
     <string name="title_activity_einstellungen">Einstellungen</string>
     <string name="action_standort">Zeige Standort</string>

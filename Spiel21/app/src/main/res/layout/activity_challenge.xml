@@ -1,0 +1,149 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChallengeFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:inputType="date"
+            android:text="Datum">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:inputType="time"
+            android:text="Zeit">
+            <!--  <requestFocus /> -->
+        </EditText>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_herausfordern"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:text="HERAUSFORDERN"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_wetterinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Wetter: -- °C"
+        android:textSize="36sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toStartOf="@+id/imageView_wetter"
+        android:textColor="#ff000000"
+        android:textIsSelectable="false"
+        android:layout_alignTop="@+id/imageView2" />
+
+
+
+    <Spinner
+        android:id="@+id/spinner_courts"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fffff6df"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spinner_user1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe2f4fb"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/spinner_user2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe2f4fb"
+        android:layout_below="@+id/spinner_user1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:spinnerMode="dialog" />
+
+    <Spinner
+        android:id="@+id/spinner_user3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffe2f4fb"
+        android:layout_below="@+id/spinner_user2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:spinnerMode="dialog" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/sun_50"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignEnd="@+id/button_herausfordern" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Basketballplatz wählen:"
+        android:id="@+id/textView"
+        android:layout_below="@+id/textView_wetterinfo"
+        android:layout_alignStart="@+id/textView_wetterinfo"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Spieler wählen:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/spinner_courts"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginTop="15dp" />
+
+
+</RelativeLayout>
+

@@ -1,99 +1,135 @@
   {  
+    "longitude":"7.570.996",
     "name":"Lindengymnasium",
-    "str":"Moltkestraße 50",
-    "plz":"51643",
-    "stadt":"Gummerbach",
-    "land":"Deutschland",
-    "latitude":"51,032,045",
-    "longitude":"7,570,996"
+    "street":"Moltkestraße 50",
+    "code":"51643",
+    "city":"Gummerbach",
+    "country":"Deutschland",
+    "latitude":"51.032.045"
   }
   {  
+    "longitude":"7.42969707",
+    "name":"SuperPlatz",
+    "street":"Tintenstraße 45",
+    "code":"51643",
+    "city":"Gummerbach",
+    "country":"Deutschland",
+    "latitude":"51.01459836"
+  }
+  {  
+    "longitude":"7.65285837",
+    "name":"Basketballplatz 9",
+    "street":"Hauptstraße 67",
+    "code":"51643",
+    "city":"Gummerbach",
+    "country":"Deutschland",
+    "latitude":"51.05990454"
+  }
+  {  
+    "longitude":"7.52117159",
+    "name":"KleinerPlatz",
+    "street":"Mittelstr. 7",
+    "code":"51643",
+    "city":"Gummerbach",
+    "country":"Deutschland",
+    "latitude":"51.08064926"
+  }
+  {  
+    "longitude":"7.53729819",
+    "name":"Schwalbeplatz",
+    "street":"Arenaweg 5",
+    "code":"51643",
+    "city":"Gummerbach",
+    "country":"Deutschland",
+    "latitude":"51.09848079"
+  }
+  {  
+    "longitude":"7.2073466",
     "name":"Chorweiler Nord Groß",
-    "str":"Kriegerhofstraße 69B",
-    "plz":"50765",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.78489926",
-    "longitude":"7.2073466"
+    "street":"Kriegerhofstraße 69B",
+    "code":"50765",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.78489926"
   }
   {  
+    "longitude":"6.81417242",
     "name":"Chorweiler Nord Klein",
-    "str":"Muldeweg",
-    "plz":"50765",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"51.13737558",
-    "longitude":"6.81417242"
+    "street":"Muldeweg",
+    "code":"50765",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"51.13737558"
   }
   {  
+    "longitude":"6.73216288",
     "name":"Vorgebirgspark",
-    "str":"Kierberger Straße 15",
-    "plz":"50765",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.95434269",
-    "longitude":"6.73216288"
+    "street":"Kierberger Straße 15",
+    "code":"50765",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.95434269"
   }
   {  
+    "longitude":"7.14640017",
     "name":"Deutzer Werft",
-    "str":"Deutzer Werft",
-    "plz":"50765",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"51.17630751",
-    "longitude":"7.14640017"
+    "street":"Deutzer Werft",
+    "code":"50765",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"51.17630751"
   }
   {  
+    "longitude":"6.606128",
     "name":"Arizona",
-    "str":"taylor straße",
-    "plz":"50766",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.86074321",
-    "longitude":"6.606128"
+    "street":"taylor straße",
+    "code":"50766",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.86074321"
   }
   {  
+    "longitude":"6.71821096",
     "name":"Buffalo",
-    "str":"westheimer rd",
-    "plz":"50767",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.97442456",
-    "longitude":"6.71821096"
+    "street":"westheimer rd",
+    "code":"50767",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.97442456"
   }
   {  
+    "longitude":"6.89919555",
     "name":"Florida",
-    "str":"prospect rd",
-    "plz":"50768",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"51.1158081",
-    "longitude":"6.89919555"
+    "street":"prospect rd",
+    "code":"50768",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"51.1158081"
   }
   {  
+    "longitude":"7.02826631",
     "name":"Maychai",
-    "str":"royal ln",
-    "plz":"50769",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.85474725",
-    "longitude":"7.02826631"
+    "street":"royal ln",
+    "code":"50769",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.85474725"
   }
   {  
+    "longitude":"6.77074631",
     "name":"Colorado",
-    "str":"dane st",
-    "plz":"50770",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.91339778",
-    "longitude":"6.77074631"
+    "street":"dane st",
+    "code":"50770",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.91339778"
   }
   {  
+    "longitude":"6.8267999",
     "name":"Alaska",
-    "str":"oak ridge ln",
-    "plz":"50771",
-    "stadt":"Köln",
-    "land":"Deutschland",
-    "latitude":"50.86658274",
-    "longitude":"6.8267999"
+    "street":"oak ridge ln",
+    "code":"50771",
+    "city":"Köln",
+    "country":"Deutschland",
+    "latitude":"50.86658274"
   }

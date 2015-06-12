@@ -10,10 +10,10 @@ var db = mongo.db("mongodb://localhost:27017/database", {native_parser:true});
 app.post('/login', function(req, res){ 
   req.on('data', function (chunk) { 
     var test = JSON.parse(chunk);
-    console.log(test.email + ", " + test.pass);
+    console.log(test.username + ", " + test.pass);
     // sucht den Eintrag in der db
       db.collection('users').find({
-        email:test.email, 
+        username:test.username, 
         pass:test.pass
       }).toArray(function(err, result){
           if(err){
@@ -64,6 +64,8 @@ app.post('/create', function(req, res){
     });
 });
 
+
+
 // Benutzer abrufen
 app.get('/users', function(req, res) {
     db.collection('users').find().toArray(function (err, items) {
@@ -72,9 +74,36 @@ app.get('/users', function(req, res) {
     });
 });
 
+
+// Object ID abrufen %users || %courts 
+app.get('/test', function(req, res) {
+    db.collection('matches').find({},{_id:1}).toArray(function (err, items) {
+      res.json(items);
+      //console.log(items);
+    });
+});
+
+
+
 // Basketballplätze abrufen
 app.get('/courts', function(req, res) {
     db.collection('courts').find().toArray(function (err, items) {
+      res.json(items);
+      //console.log(items);
+    });
+});
+
+// Basketballplätze abrufen
+app.get('/matches', function(req, res) {
+    db.collection('matches').find().toArray(function (err, items) {
+      res.json(items);
+      //console.log(items);
+    });
+});
+
+// Result abrufen
+app.get('/result', function(req, res) {
+    db.collection('result').find().toArray(function (err, items) {
       res.json(items);
       //console.log(items);
     });

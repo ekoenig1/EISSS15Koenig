@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.spiel21.application.KartenActivity">
+    tools:context="com.spiel21.application.activity.MapsActivity">
 
 
     <fragment
@@ -11,11 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
-    <TextView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="XXXXXXXXXXXXXX" />
+        android:id="@+id/imageButton_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/add_64"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:focusable="false"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="10dp" />
+
 
     <!--
     <com.google.android.gms.maps.MapView

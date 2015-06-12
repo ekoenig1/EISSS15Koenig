@@ -1,6 +1,6 @@
 # EISSS15Koenig
-EIS Projekt
+EIS Praktikum:SS15
 
-More information here:
+Hier finden Sie Informationen zur Veranstaltung Entwicklungsprojekt interaktive Systeme:
 https://www.medieninformatik.fh-koeln.de/w/index.php/Entwicklungsprojekt_interaktive_Systeme
 
