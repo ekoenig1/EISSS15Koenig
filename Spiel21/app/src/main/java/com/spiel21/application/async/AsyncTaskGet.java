@@ -11,6 +11,7 @@ import java.net.URL;
 
 public class AsyncTaskGet extends AsyncTask<String, Integer, String> {
 
+    // Strings fuer den GET-Bereich
     protected InputStream is = null;
     protected String result;
 

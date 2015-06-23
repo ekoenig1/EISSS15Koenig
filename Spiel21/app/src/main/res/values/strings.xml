@@ -37,10 +37,20 @@ hier auch zusaetzliche Sprachversion der App moeglich -->
     <string name="preference_kurzvorhersage_title">7 Tage Vorhersage</string>
     <string name="preference_kurzvorhersage_key">kurzvorhersage</string>
     <string name="preference_kurzvorhersage_summary">Vorhersage auf 7 Tage begrenzen</string>
+
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="title_activity_test">TestActivity</string>
 
+    <string name="preference_benutzername_title">Benutzername</string>
+    <string name="preference_benutzername_key">benutzername</string>
+    <string name="preference_benutzername_default">test</string>
+
+    <string name="preference_passwort_title">Passwort</string>
+    <string name="preference_passwort_key">passwort</string>
+    <string name="preference_passwort_default">test</string>
+    <string name="action_my_result">Meine Ergebnisse</string>
+    <string name="action_best_result">Top10 Ergebnisse</string>
 
 
 </resources>

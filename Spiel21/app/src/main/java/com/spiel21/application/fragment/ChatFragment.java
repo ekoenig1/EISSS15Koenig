@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.spiel21.application.R;
+import com.spiel21.application.async.Server;
 
 
 public class ChatFragment extends Fragment {
@@ -27,9 +29,17 @@ public class ChatFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false);
-    }
+        View rootView = inflater.inflate(R.layout.fragment_chat3, container, false);
 
+        WebView webView = (WebView) rootView.findViewById(R.id.webView_chat);
+        webView.getSettings().setJavaScriptEnabled(true);
+        //webView.getSettings().setLoadWithOverviewMode(true);
+        //webView.getSettings().setUseWideViewPort(true);
+        //webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+        //webView.setScrollbarFadingEnabled(false);
+
+        webView.loadUrl(Server.getAdresse() + "/users/chat");
+        return rootView;
+    }
 
 }

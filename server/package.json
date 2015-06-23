@@ -2,7 +2,7 @@
   "name": "spiel-21",
   "version": "1.0.0",
   "description": "Basketballspiel",
-  "main": "spiel21.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,10 +13,11 @@
   ],
   "author": "Eduard Koenig",
   "dependencies": {
-    "body-parser": "^1.10.2",
-    "express": "4.12.4",
-	"mongodb": "1.4.25",
-	"mongoskin": "1.4.4",    
-	"socket.io": "*"
+    "body-parser": "~1.12.0",
+    "debug": "~2.1.1",
+    "express": "~4.12.2",
+    "mongodb": "1.4.25",
+    "mongoskin": "1.4.4",
+    "socket.io": "^1.3.5"
   }
 }

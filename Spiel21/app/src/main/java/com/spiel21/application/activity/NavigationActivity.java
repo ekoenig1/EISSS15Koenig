@@ -69,8 +69,8 @@ public class NavigationActivity extends ActionBarActivity
                 fragment = new GameResultFragment();
                 break;
             case 1: // Herausfordern
-                //fragment = new ChallengeAktivity();
-                intent = new Intent(this, ChallengeAktivity.class);
+                //fragment = new ChallengeActivity();
+                intent = new Intent(this, ChallengeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 this.startActivity(intent);
                 break;

@@ -13,9 +13,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.spiel21.application.util.DateDialog;
 import com.spiel21.application.R;
 import com.spiel21.application.async.AsyncTaskPost;
+import com.spiel21.application.util.DateDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
 
@@ -72,10 +75,9 @@ public class RegistrationActivity extends ActionBarActivity {
                     boolean checkedMan = ((RadioButton) findViewById(R.id.radioButton_man)).isChecked();
                     boolean checkedWoman = ((RadioButton) findViewById(R.id.radioButton_women)).isChecked();
                     // Check which radio button was clicked
-                    if (checkedMan&&!checkedWoman){
+                    if (checkedMan && !checkedWoman) {
                         gendertext = "m";
-                    }
-                    else{
+                    } else {
                         gendertext = "w";
                     }
 
@@ -88,7 +90,7 @@ public class RegistrationActivity extends ActionBarActivity {
                     email = (EditText) findViewById(R.id.create_email);
 
 
-                    if (email.getText().toString().trim().equals("")){
+                    if (email.getText().toString().trim().equals("")) {
                         Toast.makeText(getApplication(), "EMAIL FEHLT", Toast.LENGTH_LONG).show();
                     }
 
@@ -108,11 +110,23 @@ public class RegistrationActivity extends ActionBarActivity {
                     emailtext = email.getText().toString().trim();
                     phonetext = phone.getText().toString().trim();
 
+                    JSONObject jsonObj = new JSONObject();
+                    try {
+                        jsonObj.put("gender", gendertext);
+                        jsonObj.put("username", usernametext);
+                        jsonObj.put("birth", birthtext);
+                        jsonObj.put("location", locationtext);
+                        jsonObj.put("pass", passtext);
+                        jsonObj.put("phone", phonetext);
+                        jsonObj.put("email", emailtext);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-                    String test = new AsyncTaskPost(gendertext, usernametext, birthtext, locationtext, passtext,
-                            phonetext, emailtext, "/create").execute().get();
 
-                    if (test.equals("OK")) {
+                    String stringCreate = new AsyncTaskPost(jsonObj, "/users/create").execute().get();
+
+                    if (stringCreate.equals("OK")) {
                         Toast.makeText(getApplication(), "Benutzer angelegt", Toast.LENGTH_LONG).show();
                         changeActivity();
                     } else {

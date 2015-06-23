@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class WeatherFragment extends Fragment {
     // ArrayAdapter als Membervariable
     ArrayAdapter<String> mWetterAdapter;
     String regen = null;
+    private ImageView wetterIcon;
 
     public WeatherFragment() {
     }
@@ -56,6 +58,7 @@ public class WeatherFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true); // Menue bekannt geben
+        //wetterIcon = (ImageView) getActivity().findViewById(R.id.picWetter);
     }
 
     @Override
@@ -118,7 +121,7 @@ public class WeatherFragment extends Fragment {
         // erstellen eines ArrayAdapters und hinzufuegen von Daten
         mWetterAdapter = new ArrayAdapter<String>(
                 // aktuelle Umgebung der Activity, ID des Layouts, ID des TextViews, Daten aus dem Array
-                getActivity(), R.layout.list_items, R.id.list_items_textview, wochenVorhersage);
+                getActivity(), R.layout.list_items_weather, R.id.list_items_textview, wochenVorhersage);
 
 
         View rootView = inflater.inflate(R.layout.list_view_wetter, container, false);
@@ -207,14 +210,16 @@ public class WeatherFragment extends Fragment {
                 // Wetterzustand wird abgefragt, spaeter fuer die Wetterwarnungen
                 String wetterZustand = attribute.getNamedItem("name").getNodeValue();
 
-                //TODO: Warnung ausgeben
+                //TODO: Warnung ausgeben, Icons einfuegen
                 // wird ein Wortlaut mit "Regen" gefunden, sollte eine Warnung ausgegeben werden
                 if (wetterZustand.contains("Regen")) {
-                    Log.v(LOG_TAG, "REGEN GEFUNDEN" + wetterZustand);
+                    // Log.v(LOG_TAG, "REGEN GEFUNDEN" + wetterZustand);
                     wetterdatenArray[i] = wetterdatenArray[i] + "\n (" + wetterZustand
-                            + ") *** ACHTUNG: REGEN! ***" + "\n";
+                            + ") *** ACHTUNG: REGEN ***" + "\n";
+
                 } else {
                     wetterdatenArray[i] = wetterdatenArray[i] + "\n (" + wetterZustand + ")";
+                    //wetterIcon.setVisibility(View.INVISIBLE);
                 }
 
                 //String zeitSonnenuntergang = attribute.getNamedItem("day").getNodeValue();

@@ -53,7 +53,7 @@
         </activity>
 
         <activity
-            android:name=".activity.ChallengeAktivity"
+            android:name=".activity.ChallengeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_challenge">
             <meta-data

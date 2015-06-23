@@ -25,14 +25,27 @@ public class SettingsActivity extends PreferenceActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Wetter-Einstellungen
+        // Einstellungen
         addPreferencesFromResource(R.xml.preferences);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Wetter-Einstellungen (Standort)
         Preference standortPref = findPreference(getString(R.string.preference_standort_key));
         standortPref.setOnPreferenceChangeListener(this);
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        // gespeicherter Standort, wird genommen
         String saveStandort = sharedPrefs.getString(standortPref.getKey(), "");
         onPreferenceChange(standortPref, saveStandort);
+
+        // Benutzer-Einstellungen (Benutzer, Passwort)
+        Preference benutzerPref = findPreference(getString(R.string.preference_benutzername_key));
+        benutzerPref.setOnPreferenceChangeListener(this);
+        String saveBenutzer = sharedPrefs.getString(benutzerPref.getKey(), "");
+        onPreferenceChange(benutzerPref, saveBenutzer);
+
+        Preference passwortPref = findPreference(getString(R.string.preference_passwort_key));
+        passwortPref.setOnPreferenceChangeListener(this);
+        String savePasswort = sharedPrefs.getString(passwortPref.getKey(), "");
+        onPreferenceChange(passwortPref, savePasswort);
+
         // Info fuer den Benutzer
         Toast.makeText(this, "Zurück mit Back-Button.", Toast.LENGTH_SHORT).show();
 
