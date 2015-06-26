@@ -1,0 +1,56 @@
+<!-- Bezeichnungen fuer die Menüeintrage
+hier auch zusaetzliche Sprachversion der App moeglich -->
+
+<resources>
+    <string name="app_name">Spiel 21</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="title_activity_navigation">Navigation</string>
+
+    <string name="title_section1">Spielergebnisse</string>
+    <string name="title_section2">Herausfordern</string>
+    <string name="title_section3">Basketballplätze</string>
+    <string name="title_section4">Chat</string>
+    <string name="title_section5">Wetter</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example</string>
+    <string name="title_activity_registration">Registrierung</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Wetterstrings -->
+    <string name="action_aktualisieren">Aktualisieren</string>
+    <string name="title_activity_wetter">Wetter</string>
+    <string name="title_challenge">Herausfordern</string>
+    <string name="title_activity_spielstream">Spielstream</string>
+    <string name="title_activity_einstellungen">Einstellungen</string>
+    <string name="action_standort">Zeige Standort</string>
+
+    <string name="preference_standort_title">Standort</string>
+    <string name="preference_standort_key">standort</string>
+    <string name="preference_standort_default">Gummersbach</string>
+
+    <string name="preference_kurzvorhersage_title">7 Tage Vorhersage</string>
+    <string name="preference_kurzvorhersage_key">kurzvorhersage</string>
+    <string name="preference_kurzvorhersage_summary">Vorhersage auf 7 Tage begrenzen</string>
+
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+
+    <string name="preference_benutzername_title">Benutzername</string>
+    <string name="preference_benutzername_key">benutzername</string>
+    <string name="preference_benutzername_default">test</string>
+
+    <string name="preference_passwort_title">Passwort</string>
+    <string name="preference_passwort_key">passwort</string>
+    <string name="preference_passwort_default">test</string>
+    <string name="action_my_result">Meine Ergebnisse</string>
+    <string name="action_best_result">Top10 Ergebnisse</string>
+
+
+</resources>

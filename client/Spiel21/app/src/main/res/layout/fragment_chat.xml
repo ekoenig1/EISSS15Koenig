@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.spiel21.application.fragment.ChatFragment">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senden"
+        android:id="@+id/button_go"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Messages hier.."
+        android:id="@+id/textView_chat"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/button_go"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_chat"
+        android:layout_alignBottom="@+id/button_go"
+        android:layout_alignLeft="@+id/textView_chat"
+        android:layout_alignStart="@+id/textView_chat"
+        android:layout_toLeftOf="@+id/button_go"
+        android:layout_toStartOf="@+id/button_go"
+        android:hint="Hier schreiben..."
+        android:layout_alignTop="@+id/button_go" />
+</RelativeLayout>
+
