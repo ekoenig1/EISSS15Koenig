@@ -1,0 +1,5 @@
+express "name eingeben"
+npm install mongoose --save
+npm install
+npm start
+

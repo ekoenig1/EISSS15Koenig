@@ -3,11 +3,11 @@ module.exports = {
     sucheUserName: function (result, users) {
 
         var responseObject = new Array(result.length);
-        var usrname = "";
+        var uname = "";
 
         // Erzeuge responseObjekt mit leeren Daten
         for (var k = 0; k < responseObject.length; k++) {
-            responseObject[k] = {"usrname": ""};
+            responseObject[k] = {"uname": ""};
         }
 
 
@@ -17,13 +17,13 @@ module.exports = {
                 if (result[i]._id == users[j]._id) {
                     //console.log("result ID: "+result[i].player_id);
                     //console.log("users ID: "+users[j]._id);
-                    usrname = users[j].username;
-                    //console.log(usrname);
+                    uname = users[j].username;
+                    //console.log(uname);
                     break;
                 }
             }
             // Befuelle den responseObject mit den Daten
-            responseObject[i].usrname = usrname;
+            responseObject[i].uname = uname;
         }
 
         return responseObject;

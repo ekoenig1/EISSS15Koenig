@@ -24,7 +24,6 @@ db.collection('users').find().toArray(function (err, result) {
 });
 
 
-
 // Loginbereich mit post Ressource
 app.post('/users/login', function (req, res) {
     req.on('data', function (chunk) {
@@ -53,7 +52,7 @@ app.post('/users/login', function (req, res) {
 
 
 // Einfügen Benutzer, auf die Ressource
-app.post('/users/create', function (req, res) {
+app.post('/users', function (req, res) {
     req.on('data', function (chunk) {
         // JSON parse
         var user = JSON.parse(chunk);
@@ -84,6 +83,7 @@ app.post('/users/create', function (req, res) {
 
 
 // Matchbereich mit post Ressource
+// /matches/create
 app.post('/matches', function (req, res) {
     req.on('data', function (chunk) {
         // JSON parse
@@ -126,7 +126,8 @@ app.get('/users/chat', function (req, res) {
 io.on('connection', function (socket) {
     socket.on('chat message', function (msg) {
         io.emit('chat message', msg);
-    });});
+    });
+});
 io.on('connection', function (socket) {
     console.log('User connected');
     socket.on('disconnect', function () {
@@ -134,104 +135,10 @@ io.on('connection', function (socket) {
     });
 });
 
-// Benutzer abrufen
-app.get('/users', function (req, res) {
-    db.collection('users').find().toArray(function (err, items) {
-        res.json(items);
-        //console.log(items);
-    });
-});
 
-// Benutzer per ID abrufen
-app.get('/users/:id', function (req, res) {
-    db.collection('users').findById(req.params.id, function (err, user) {
-        res.json(user);
-        //console.log(items);
-    });
-});
-
-
-
-// Basketballplätze abrufen
-app.get('/courts', function (req, res) {
-    db.collection('courts').find().toArray(function (err, items) {
-        res.json(items);
-        //console.log(items);
-    });
-});
-
-/*
- // Basketballplätze abrufen
- app.get('/matches', function (req, res) {
- db.collection('matches').find().toArray(function (err, items) {
- res.json(items);
- // hier die Tabelen filtern und die Users
- //console.log(items);
- });
- });
- */
-
-/*
- app.get('/matches/:id', function (req, res) {
- db.collection('matches').findById(req.params.id, function (err, match) {
- res.json(match);
- // hier die Tabelen filtern und die Users
- //console.log(items);
- });
- });
- */
-
-// Basketballplätze abrufen
-/*app.get('/result', function (req, res) {
- db.collection('result').find().limit(10).toArray(function (err, items) {
- res.json(items);
- // hier die Tabelen filtern und die Users
- //console.log(items);
- });
- });*/
-app.get('/result', function (req, res) {
-    db.collection('matches').find().sort({date: -1}).limit(10).toArray(function (err, items) {
-        res.json(items);
-        // hier die Tabelen filtern und die Users
-        //console.log(items);
-    });
-});
-
-
-// Matches abrufen
-var courtsName = require('./routes/courtname');
-app.get('/matches', function (req, res) {
-    db.collection('matches').find().sort({date: -1}).limit(50).toArray(function (err, matches) {
-        var result = courtsName.sucheCourtName(matches, courts);
-        //console.log(result);
-        res.json(result);
-    });
-});
-
-
-// Users abrufen
-var usersName = require('./routes/username');
-app.get('/result1', function (req, res) {
-    db.collection('result').find().toArray(function (err, items) {
-        var result = usersName.sucheUserName(items, users);
-        console.log(result);
-        res.json(result);
-    });
-});
-
-
-// Ergebnisse abrufen
+// Gesamtergebnisse zu allen Benutzern, win und lose werden zusammengezählt
 var resultName = require('./routes/resultname');
-app.get('/playerresult/:id', function (req, res) {
-    db.collection('result').find({"player_id": req.params.id}).toArray(function (err, items) {
-        var result = resultName.einzelneErgebnisse(items, users);
-        console.log(result);
-        res.json(result);
-    });
-});
-
-var resultName = require('./routes/resultname');
-app.get('/playerresult', function (req, res) {
+app.get('/users/playerresult', function (req, res) {
     db.collection('result').find().toArray(function (err, items) {
         var result = resultName.topErgebnisse(items, users);
         console.log(result);
@@ -240,34 +147,84 @@ app.get('/playerresult', function (req, res) {
 });
 
 
+// Ergebnisse zu einem Benutzer, win und lose werden zusammengezählt
+var resultName = require('./routes/resultname');
+app.get('/users/playerresult/:id', function (req, res) {
+    db.collection('result').find({"player_id": req.params.id}).toArray(function (err, items) {
+        var result = resultName.einzelneErgebnisse(items, users);
+        console.log(result);
+        res.json(result);
+    });
+});
+
+
+// Benutzer abrufen
+app.get('/users', function (req, res) {
+    db.collection('users').find().toArray(function (err, items) {
+        res.json(items);
+    });
+});
+
+
+// Informationen zu einem Benutzer anzeigen
+app.get('/users/:id', function (req, res) {
+    db.collection('users').findById(req.params.id, function (err, items) {
+        res.json(items);
+    });
+});
+
+
+// Basketballplätze abrufen
+app.get('/courts', function (req, res) {
+    db.collection('courts').find().toArray(function (err, items) {
+        res.json(items);
+    });
+});
+
+
+// Informationen zu einem Basketballplatz anzeigen
+app.get('/courts/:id', function (req, res) {
+    db.collection('courts').findById(req.params.id, function (err, items) {
+        res.json(items);
+    });
+});
+
+
+// Ergebnisse zu den Matches abrufen
+// Beschraenkt auf 50, Sortierung funktiniert noch nicht, da kein ISO Format bei date und time
+var courtsName = require('./routes/courtname');
+app.get('/matches', function (req, res) {
+    db.collection('matches').find().limit(50).toArray(function (err, matches) { // .sort({date: -1})
+        var result = courtsName.sucheCourtName(matches, courts);
+        //console.log(result);
+        res.json(result);
+    });
+});
+
+
 /*
- // Aggregates a document
- app.get('/test', function (req, res) {
- db.collection('result').group({
- //'$group': {
- //_id: {$player_id: { '$sum': '$win'}}} }, function (err, items) {
- //_id: '$player_id', win: {'$sum': 1}
- //"_id": { "player_id": "$player_id", "win": "$win"}, "count": {"$sum": 1}
+// Aggregates a document
+app.get('/test', function (req, res) {
+    db.collection('result').group({
+        //'$group': {
+        //_id: {$player_id: { '$sum': '$win'}}} }, function (err, items) {
+        //_id: '$player_id', win: {'$sum': 1}
+        //"_id": { "player_id": "$player_id", "win": "$win"}, "count": {"$sum": 1}
 
 
- }, function (err, items) {
- var ergebnis = usersName.sucheUserName(items, users);
- for (var i = 0; i < ergebnis.length; i++) {
- console.log("--> " + items[i]._id);
- console.log("--> " + items[i].count);
- console.log("--> " + ergebnis[i].usrname);
+    }, function (err, items) {
+        var ergebnis = usersName.sucheUserName(items, users);
+        for (var i = 0; i < ergebnis.length; i++) {
+            console.log("--> " + items[i]._id);
+            console.log("--> " + items[i].count);
+            console.log("--> " + ergebnis[i].usrname);
 
- }
- //console.log(ergebnis[i]);
- });
+        }
+        //console.log(ergebnis[i]);
+    });
 
- });
- */
-
-
-
-
-
+});
+*/
 
 
 // Server-Port
